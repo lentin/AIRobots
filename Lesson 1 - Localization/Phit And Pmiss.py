@@ -3,6 +3,15 @@
 #the red cells 1 and 2 are hits and the other green cells
 #are misses
 
+"""
+p=[0.2,0.2,0.2,0.2,0.2]
+pHit = 0.6
+pMiss = 0.2
+
+#Enter code here
+
+print p
+"""
 
 p=[0.2,0.2,0.2,0.2,0.2]
 pHit = 0.6

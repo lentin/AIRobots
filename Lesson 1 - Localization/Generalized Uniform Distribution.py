@@ -2,6 +2,13 @@
 #  size, n. Use n=5 to verify that your new solution matches 
 #  the previous one.
 
+"""
+p=[]
+n=5
+
+print p
+"""
+
 p=[]
 n=5
 for i in range(n):
