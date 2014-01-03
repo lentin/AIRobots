@@ -1,5 +1,5 @@
 
-#Mo:dify the code so that it updates the probability twice
+#Modify the code so that it updates the probability twice
 #and gives the posterior distribution after both 
 #measurements are incorporated. Make sure that your code 
 #allows for any sequence of measurement of any length.
@@ -59,7 +59,8 @@ def sense(p, in_measurement, in_world, in_pHit, in_pMiss):
 
 def senseMultiple(in_measurements, dataSet, in_world, in_pHit, in_pMiss):
     for eachMeasurement in in_measurements:
-        dataSet = sense(dataSet, eachMeasurement, in_world, in_pHit, in_pMiss)
+	#Note that this will recursively overwrite the original dataSet input
+	dataSet = sense(dataSet, eachMeasurement, in_world, in_pHit, in_pMiss)
     return dataSet
 
 print(senseMultiple(given_measurements, p, world, pHit, pMiss))
