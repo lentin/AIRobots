@@ -29,7 +29,36 @@ def move(p, U):
     return q
     
 
-print move(p, 1)
+
+	pprint move(p, 1)
 """
+
+def move(p, U):
+        q = [0]*len(p)
+        position = U
+        for each in p:
+                q[position%len(p)] = float(each)
+                position+=1
+       #This is ugly, but it works for giving inexact moves. It reads through the array of shifted positions, then replaces nonzero entries
+       #and their neighbors with the correct inexact movement values, adding if the neighbors are 0 and multiplying if they are not.
+        toTranslate = []
+        for each in range(len(q)):
+            if q[each] > 0:
+                toTranslate.append(each)
+        for each in toTranslate:
+            q[each] = q[each]*pExact
+            if q[(each+1)%len(q)] == 0:
+                q[(each+1)%len(q)] = q[(each+1)%len(q)] + pOvershoot
+            else:
+                q[(each+1)%len(q)] = q[(each+1)%len(q)] * pOvershoot
+            if q[(each-1)%len(q)] == 0:
+                q[(each-1)%len(q)] = q[(each-1)%len(q)] + pUndershoot
+            else:
+                q[(each-1)%len(q)] = q[(each-1)%len(q)] * pUndershoot
+        return q
+
+print move(p, 1)
+
+
 
 
